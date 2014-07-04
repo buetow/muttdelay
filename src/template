@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-declare -r VERSION='VERSION_DEVEL'
-
-echo "This is version $VERSION of the example template project."

@@ -1,15 +1,16 @@
-Source: template
+Source: muttdelay
 Section: utils
 Priority: optional
 Maintainer: Paul Buetow <paul@buetow.org>
 Build-Depends: 
 Standards-Version: 3.9.2
-Homepage: https://template.buetow.org
-Vcs-Git: https://github.com/rantanplan/template.git
-Vcs-Browser: https://github.com/rantanplan/template
+Homepage: https://muttdelay.buetow.org
+Vcs-Git: https://github.com/rantanplan/muttdelay.git
+Vcs-Browser: https://github.com/rantanplan/muttdelay
 
-Package: template
+Package: muttdelay
 Architecture: all
 Depends:
-Description: Small template package
- This is just a template package, which cann print Hello World.
+Description: Delaying the sending of mails
+  A bash script to delay mails written via mutt and msmtp.
+ 

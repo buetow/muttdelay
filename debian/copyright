@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: template
-Source: http://template.buetow.org
+Upstream-Name: muttdelay
+Source: http://muttdelay.buetow.org
 
 Files: *
 Copyright: 2012 Paul Buetow <paul@buetow.org>

@@ -1,4 +1,4 @@
-NAME=template
+NAME=muttdelay
 all: version documentation build
 
 # THIS IS NEEDED BY THE DEBIAN TOOLS
