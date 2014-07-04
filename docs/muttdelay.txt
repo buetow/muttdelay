@@ -95,8 +95,8 @@ Customize
         find . -name \*muttdelay\* | 
         while read muttdelay; do git mv $muttdelay ${muttdelay/muttdelay/$PROJECTNAME}; done
 
-    Search all content and rename *muttdelay* into your own new package name.
-    You can do that with:
+    Search all content and rename *muttdelay* into your own new package
+    name. You can do that with:
 
         grep -R muttdelay . | grep -v .git | 
         cut -d: -f1 | uniq | xargs sed -i "s/muttdelay/$PROJECTNAME/g"
