@@ -1,5 +1,5 @@
-muttdelay (0.0.0) stable; urgency=low
+muttdelay (0.1.0) stable; urgency=low
 
-  * Initial version of the muttdelay
+  * Initial release of muttdelay
 
- -- Paul Buetow <paul@buetow.org>  Fri, 04 Jan 2013 07:53:32 +0100
+ -- Paul Buetow <paul@buetow.org>  Fri, 04 Jul 2014 23:43:21 +0200
