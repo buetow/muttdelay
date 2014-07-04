@@ -20,7 +20,7 @@ WTF?
    Configuring Mutt
     Configure mutt your way and ensure that you can send mails like this:
 
-        mutt -s subject example@example.com mail.txt
+        mutt -s subject example@example.com < mail.txt
 
     If it works, you can go on.
 
