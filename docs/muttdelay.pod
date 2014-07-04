@@ -25,7 +25,7 @@ And create an hourly cronjob such as:
 
 Configure mutt your way and  ensure that you can send mails like this:
 
-    mutt -s subject example@example.com < mail.txt
+    mutt -s subject example@example.com <<< hallo
 
 If it works, you can go on. 
 
