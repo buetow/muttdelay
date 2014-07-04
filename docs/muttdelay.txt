@@ -1,114 +1,54 @@
 NAME
-    muttdelay - A muttdelay project
+    muttdelay - A bash script to delay mails written via mutt
 
 WTF?
-    You may use this project in order to build your own Debian package for
-    your own project. This has been tested with Debian GNU/Linux Squeeze and
-    Debian GNU/Linux Wheezy.
+    This is for scheduling the sending of mails for a specific future time.
+    Unlinke postponing a mail which does not involve the scheduling.
 
-    Feel free to modify any aspects. This project is just an empty example
-    muttdelay.
+  How it works
+   Configuring Vim
+    Do the following:
 
-    Follow these steps:
+        cp /usr/share/muttdelay/muttdelay.vim ~/.vim/plugin/
+        echo 'map ,L :call MuttDelay()<CR>' >> ~/.vimrc
 
-  Install required packages
-    Run the following:
+   Configuring CRON
+    And create an hourly cronjob such as:
 
-        sudo aptitude install lintian devscripts dpkg-dev make perl
+        0 * * * * /usr/bin/muttdelay cron
 
-    Todo: Ensure this are the correct packages. In order to test that I
-    would have to setup a blank Debian system.
+   Configuring msmtp
+    For example like this (change your configuration accordingly to fit your
+    needs):
 
-  Compile the project
-    Go to the to level directory and run
+        cp /usr/share/muttdelay/msmtprc.example  ~/.msmtprc
+        vim ~/.msmtprc
 
-        make
+    And ensure that you can send mails like this:
 
-    To test run
+        msmtp your@address.example.com <<< Hallo
 
-        ./bin/muttdelay
+    If it works, you can go on
 
-    It should print out the version number of the project.
+   Use it
+    Open mutt, compose an email. Use Vim as your editor. After finishing
+    writing your mail don't close Vim, but run
 
-  Create a Debian package
-    Go to the to level directory and run
+        ,L
 
-        make deb
+    and the mail gets scheduled for sending for a later time. You can now
+    leave vim without sending the mail via mutt directly.
 
-    It will create the files like:
+    The mail tself is saved to
 
-        ../muttdelay_0.0.0.0_all.deb
-        ../muttdelay_0.0.0.0.dsc
-        ../muttdelay_0.0.0.0_amd64.changes
-        ../muttdelay_0.0.0.0.tar.gz
+        ~/.muttdelay/SENDTIMESTAMP.COMPOSETIMESTAMP
 
-    It should create a debian package in ../. Check and install it, e.g:
+    The cron job checks if there is any SENDTIMESTAMP lower than the current
+    unix time stamp. And if so, all matching mails are sent.
 
-        lintian --pedantic ../muttdelay_0.0.0.0_all.deb 
-        sudo dpkg -i ../muttdelay_0.0.0.0_all.deb
+LICENSE
+    See package description or project website.
 
-    Run
-
-        dpkg -L muttdelay
-
-    to see whats in there. You can now run
-
-        /usr/bin/muttdelay
-
-    or for example
-
-        man muttdelay
-
-  Read the Makefile
-    Read the Makefile in order to understand what's going on.
-
-Customize
-    Now, since you understood everything feel free to customize everything
-    the way you want it. E.g.:
-
-        Don't use POD for documentation but LaTeX
-
-        Compile a C program
-
-        Include a ./lib dir, add it to the 'install' Makefile rule
-
-        etc etc.
-
-    You should also consider the following:
-
-  Manual page
-    This muttdelay is using POD for creating manual pages. Edit
-    ./docs/muttdelay.pod and run
-
-        make documentation
-
-    in order to build ./docs/muttdelay.1. The page will be included in the
-    resulting debian package automatically. You can review the page with
-
-        man ./docs/muttdelay.1
-
-  Renaming muttdelay into your project name
-    Rename all files which have *muttdelay* included into your own new
-    package name. You can do that with:
-
-        PROJECTNAME=yourproject
-        find . -name \*muttdelay\* | 
-        while read muttdelay; do git mv $muttdelay ${muttdelay/muttdelay/$PROJECTNAME}; done
-
-    Search all content and rename *muttdelay* into your own new package
-    name. You can do that with:
-
-        grep -R muttdelay . | grep -v .git | 
-        cut -d: -f1 | uniq | xargs sed -i "s/muttdelay/$PROJECTNAME/g"
-
-  Updating ./debian
-    Edit the following files accordingly to your new project (e.g. with
-    vim):
-
-        vim ./debian/{control,copyright,README}
-
-  Update changelog
-    Go to the to level directory and run
-
-        dch -i
+AUTHOR
+    Paul C. Buetow - <http://muttdelay.buetow.org>
 

@@ -1,0 +1,15 @@
+defaults
+tls on
+tls_certcheck off
+#tls_trust_file /etc/ssl/certs/ca-certificates.crt
+#logfile ~/tmp/debug.log
+
+account myaccount
+host smtp.example.org
+from example@example.org
+auth on
+user myuser
+password mypass
+
+account default : myaccount
+
