@@ -18,10 +18,20 @@ USAGE
 cron () {
 
   ls "${QUEUE}" |
+  grep -v .body |
   while read mail; do
     when=$(sed -E 's/^([0-9]+)\..*/\1/' <<< "${mail}")
     if [ ${NOW} -gt ${when} ]; then
-      $MAILCMD < "${QUEUE}/${mail}" && rm "${QUEUE}/${mail}"
+      fullpath="${QUEUE}/${mail}"
+      to=$(formail -xto: < "${fullpath}")
+      cc=$(formail -xcc: < "${fullpath}")
+      bcc=$(formail -xbcc: < "${fullpath}")
+      subject=$(formail -xsubject: < "${fullpath}")
+
+      sed '1,/^$/d' "${fullpath}" > "${fullpath}.body"
+
+      mutt "${to}" -s "${subject}" -c "${cc}" -b "${bcc}" \
+        < "${fullpath}.body" && rm "${fullpath}"*
     fi
   done
 }

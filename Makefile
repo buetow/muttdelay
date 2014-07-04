@@ -17,7 +17,6 @@ install:
 	test ! -d $(DESTDIR)/etc/default && mkdir -p $(DESTDIR)/etc/default || exit 0
 	cp ./src/muttdelay.default.conf $(DESTDIR)/etc/default/muttdelay
 	cp ./src/*.vim $(DESTDIR)/usr/share/$(NAME)/
-	cp ./src/*.sample $(DESTDIR)/usr/share/$(NAME)/
 
 deinstall:
 	test ! -z "$(DESTDIR)" && test -f $(DESTDIR)/usr/bin/$(NAME) && rm $(DESTDIR)/usr/bin/$(NAME) || exit 0
