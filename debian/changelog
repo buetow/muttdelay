@@ -1,3 +1,9 @@
+muttdelay (0.1.2) stable; urgency=low
+
+  * Add dput target to Makefile
+
+ -- Paul Buetow <paul@buetow.org>  Fri, 04 Jul 2014 23:48:21 +0200
+
 muttdelay (0.1.1) stable; urgency=low
 
   * Make msmtp optionally
