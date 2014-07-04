@@ -1,3 +1,9 @@
+muttdelay (0.2.0) stable; urgency=low
+
+  * Using Mutt instead of msmtp for sending mails.
+
+ -- Paul Buetow <paul@buetow.org>  Sat, 05 Jul 2014 00:24:00 +0200
+
 muttdelay (0.1.2) stable; urgency=low
 
   * Add dput target to Makefile

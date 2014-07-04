@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "MUTTDELAY 1"
-.TH MUTTDELAY 1 "2014-07-04" "muttdelay 0.1.2" "User Commands"
+.TH MUTTDELAY 1 "2014-07-05" "muttdelay 0.2.0" "User Commands"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -155,31 +155,16 @@ And create an hourly cronjob such as:
 \&    0 * * * * /usr/bin/muttdelay cron
 .Ve
 .PP
-\fIConfiguring msmtp\fR
-.IX Subsection "Configuring msmtp"
+\fIConfiguring Mutt\fR
+.IX Subsection "Configuring Mutt"
 .PP
-You may use other command which can send an email instead. But this has been tested with msmtp only.
-.PP
-It can be configured for example like this (change your configuration accordingly to fit your needs):
-.PP
-.Vb 2
-\&    cp /usr/share/muttdelay/msmtprc.example  ~/.msmtprc
-\&    vim ~/.msmtprc
-.Ve
-.PP
-And ensure that you can send mails like this:
+Configure mutt your way and  ensure that you can send mails like this:
 .PP
 .Vb 1
-\&    msmtp your@address.example.com <<< Hallo
+\&    mutt \-s subject example@example.com mail.txt
 .Ve
 .PP
-If it works, you can go on. Or if you want to use another command to send mails just edit
-.PP
-.Vb 1
-\&    /etc/default/muttdelay
-.Ve
-.PP
-accordingly.
+If it works, you can go on.
 .PP
 \fIUse it\fR
 .IX Subsection "Use it"

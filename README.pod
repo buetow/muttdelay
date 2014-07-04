@@ -21,24 +21,13 @@ And create an hourly cronjob such as:
 
     0 * * * * /usr/bin/muttdelay cron
 
-=head3 Configuring msmtp
+=head3 Configuring Mutt
 
-You may use other command which can send an email instead. But this has been tested with msmtp only.
+Configure mutt your way and  ensure that you can send mails like this:
 
-It can be configured for example like this (change your configuration accordingly to fit your needs):
+    mutt -s subject example@example.com mail.txt
 
-    cp /usr/share/muttdelay/msmtprc.example  ~/.msmtprc
-    vim ~/.msmtprc
-
-And ensure that you can send mails like this:
-
-    msmtp your@address.example.com <<< Hallo
-
-If it works, you can go on. Or if you want to use another command to send mails just edit
-
-    /etc/default/muttdelay
-
-accordingly.
+If it works, you can go on. 
 
 =head3 Use it
 
