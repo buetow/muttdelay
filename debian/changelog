@@ -1,3 +1,9 @@
+muttdelay (0.1.1) stable; urgency=low
+
+  * Make msmtp optionally
+
+ -- Paul Buetow <paul@buetow.org>  Fri, 04 Jul 2014 23:47:25 +0200
+
 muttdelay (0.1.0) stable; urgency=low
 
   * Initial release of muttdelay

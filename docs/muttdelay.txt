@@ -18,8 +18,11 @@ WTF?
         0 * * * * /usr/bin/muttdelay cron
 
    Configuring msmtp
-    For example like this (change your configuration accordingly to fit your
-    needs):
+    You may use other command which can send an email instead. But this has
+    been tested with msmtp only.
+
+    It can be configured for example like this (change your configuration
+    accordingly to fit your needs):
 
         cp /usr/share/muttdelay/msmtprc.example  ~/.msmtprc
         vim ~/.msmtprc
@@ -28,7 +31,12 @@ WTF?
 
         msmtp your@address.example.com <<< Hallo
 
-    If it works, you can go on
+    If it works, you can go on. Or if you want to use another command to
+    send mails just edit
+
+        /etc/default/muttdelay
+
+    accordingly.
 
    Use it
     Open mutt, compose an email. Use Vim as your editor. After finishing
