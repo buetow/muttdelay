@@ -23,7 +23,9 @@ And create an hourly cronjob such as:
 
 =head3 Configuring msmtp
 
-For example like this (change your configuration accordingly to fit your needs):
+You may use other command which can send an email instead. But this has been tested with msmtp only.
+
+It can be configured for example like this (change your configuration accordingly to fit your needs):
 
     cp /usr/share/muttdelay/msmtprc.example  ~/.msmtprc
     vim ~/.msmtprc
@@ -32,7 +34,11 @@ And ensure that you can send mails like this:
 
     msmtp your@address.example.com <<< Hallo
 
-If it works, you can go on
+If it works, you can go on. Or if you want to use another command to send mails just edit
+
+    /etc/default/muttdelay
+
+accordingly.
 
 =head3 Use it
 

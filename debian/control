@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/rantanplan/muttdelay
 
 Package: muttdelay
 Architecture: all
-Depends: msmtp
+Depends: 
 Description: Delaying the sending of mails
   A bash script to delay mails written via mutt and msmtp.
  
