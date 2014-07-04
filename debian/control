@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Paul Buetow <paul@buetow.org>
 Build-Depends: 
 Standards-Version: 3.9.2
-Homepage: https://muttdelay.buetow.org
+Homepage: https://github.com/rantanplan/muttdelay
 Vcs-Git: https://github.com/rantanplan/muttdelay.git
 Vcs-Browser: https://github.com/rantanplan/muttdelay
 
