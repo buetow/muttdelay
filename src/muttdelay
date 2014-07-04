@@ -4,8 +4,7 @@
 
 declare -r VERSION='VERSION_DEVEL'
 declare -r ARG="${1}" ; shift
-declare -r QUEUE="${HOME}/.maildelayed"
-declare -r MAILCMD='msmtp -t'
+declare -r DEFAULTRC=/etc/default/muttdelay
 
 usage () {
   cat - <<USAGE >&2
@@ -31,6 +30,8 @@ mutt () {
   echo Not yet implemented
   exit 3
 }
+
+source "${DEFAULTRC}"
 
 [ ! -d "${QUEUE}" ] && mkdir "${QUEUE}" && chmod 0700 "${QUEUE}"
 
