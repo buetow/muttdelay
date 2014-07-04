@@ -15,7 +15,7 @@ Do the following:
     cp /usr/share/muttdelay/muttdelay.vim ~/.vim/plugin/
     echo 'map ,L :call MuttDelay()<CR>' >> ~/.vimrc
 
-=head3 Configuring CRON
+=head3 Configuring Cron
 
 And create an hourly cronjob such as:
 
@@ -42,7 +42,7 @@ Open mutt, compose an email. Use Vim as your editor. After finishing writing you
 
 and the mail gets scheduled for sending for a later time. You can now leave vim without sending the mail via mutt directly.
 
-The mail tself is saved to
+The mail itself is saved to
 
     ~/.muttdelay/SENDTIMESTAMP.COMPOSETIMESTAMP
 
@@ -54,6 +54,6 @@ See package description or project website.
 
 =head1 AUTHOR
 
-Paul C. Buetow - <http://muttdelay.buetow.org>
+Paul C. Buetow - <http://paul.buetow.org>
 
 =cut

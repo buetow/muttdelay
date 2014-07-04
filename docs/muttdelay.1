@@ -146,8 +146,8 @@ Do the following:
 \&    echo \*(Aqmap ,L :call MuttDelay()<CR>\*(Aq >> ~/.vimrc
 .Ve
 .PP
-\fIConfiguring \s-1CRON\s0\fR
-.IX Subsection "Configuring CRON"
+\fIConfiguring Cron\fR
+.IX Subsection "Configuring Cron"
 .PP
 And create an hourly cronjob such as:
 .PP
@@ -184,7 +184,7 @@ Open mutt, compose an email. Use Vim as your editor. After finishing writing you
 .PP
 and the mail gets scheduled for sending for a later time. You can now leave vim without sending the mail via mutt directly.
 .PP
-The mail tself is saved to
+The mail itself is saved to
 .PP
 .Vb 1
 \&    ~/.muttdelay/SENDTIMESTAMP.COMPOSETIMESTAMP
@@ -196,4 +196,4 @@ The cron job checks if there is any \s-1SENDTIMESTAMP\s0 lower than the current 
 See package description or project website.
 .SH "AUTHOR"
 .IX Header "AUTHOR"
-Paul C. Buetow \- <http://muttdelay.buetow.org>
+Paul C. Buetow \- <http://paul.buetow.org>
