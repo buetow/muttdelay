@@ -54,6 +54,6 @@ See package description or project website.
 
 =head1 AUTHOR
 
-Paul C. Buetow - <http://muttdelay.buetow.org>
+Paul C. Buetow - <http://paul.buetow.org>
 
 =cut
