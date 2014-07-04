@@ -3,8 +3,10 @@
 # (c) 2014 by Paul C. Buetow
 
 declare -r VERSION='VERSION_DEVEL'
-declare -r ARG="${1}" ; shift
+declare -r ARG1="${1}" ; shift
+declare -r ARG2="${1}" ; shift
 declare -r DEFAULTRC=/etc/default/muttdelay
+declare -r NOW=$(date +%s)
 
 usage () {
   cat - <<USAGE >&2
@@ -14,30 +16,35 @@ USAGE
 
 # Run by a periodic cron job
 cron () {
-  declare -r now=$(date +%s)
 
   ls "${QUEUE}" |
   while read mail; do
     when=$(sed -E 's/^([0-9]+)\..*/\1/' <<< "${mail}")
-    if [ $now -gt $when ]; then
+    if [ ${NOW} -gt ${when} ]; then
       $MAILCMD < "${QUEUE}/${mail}" && rm "${QUEUE}/${mail}"
     fi
   done
 }
 
-# Run from mutt
-mutt () {
-  echo Not yet implemented
-  exit 3
+# Run from vim
+vim () {
+  declare -r mail="${ARG2}"
+  declare -i days=0
+
+  echo -n 'In how many days should I send this mail?: '
+  read days
+
+  declare -i future=$(( $days * 86400 + $NOW ))
+  cp -v "${mail}" "${QUEUE}/${future}.${NOW}"
 }
 
 source "${DEFAULTRC}"
 
 [ ! -d "${QUEUE}" ] && mkdir "${QUEUE}" && chmod 0700 "${QUEUE}"
 
-case "${ARG}" in
+case "${ARG1}" in
   cron) cron;;
-  mutt) mutt;;
+  vim)  vim;;
   *)    usage;;
 esac
 
