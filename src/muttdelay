@@ -10,7 +10,7 @@ declare -r NOW=$(date +%s)
 
 usage () {
   cat - <<USAGE >&2
-  Usage: $0 mutt|cron
+  Usage: $0 cron|vim
 USAGE
 }
 
